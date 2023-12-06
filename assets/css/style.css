@@ -1,0 +1,425 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Cabin", sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+:root{
+    --purple: #504ed3;
+    --orange: #f5ab00;
+    --pink: #eaa2aa;
+}
+.pink-txt{
+    color: var(--pink);
+}
+.purple-txt{
+    color: var(--purple);
+}
+a{
+    text-decoration: none;
+}
+ul li{
+    list-style-type: none;
+}
+/* Header */
+header{
+    height: 100px;
+    background-color: white;
+}
+.logo a{
+    font-size: 1.5rem;
+}
+#navbar ul, #footerNav ul{
+    display: flex;
+}
+#navbar ul li{
+    margin-left: 1rem;
+}
+#navbar ul li:first-child, #footerNav ul li:first-child{
+    margin-left: 0px;
+}
+#navbar ul li a, .logo a, #footerNav a, #socialMedia a{
+    color: black;
+}
+#navbar ul li:first-child a, #navbar ul li a:hover{
+    font-weight: 600;
+}
+#signUp{
+    background-color: white;
+    padding: 10px;
+    color: black;
+}
+#signUp:hover{
+    border-radius: 50%;
+    box-shadow: 1px 2px 10px grey;  
+}
+#startToday, .startTodayWhite, .readMore, .readLess, #submit, #signUpOrange{  
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;   
+}
+#startToday, #submit{
+    background-color: var(--purple);
+    box-shadow: 5px 2px 10px var(--purple);
+}
+/* Modal */
+#startoday{
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+#startoday img{
+    width: 5rem;
+    margin: 0 auto;
+}
+.close {
+    color: var(--pink);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    width: 20px;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    width: 50%; 
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* Hamburger */
+#hamburger i{
+    z-index: 2;
+}
+#hamburgerToggle{
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 1px solid grey;
+    color: grey;
+    padding: 3px 10px;
+    background-color: rgba(234, 162, 170, 0.2);
+}
+#navHamburger{
+    position: fixed;
+    background-color: #f7f0f1;
+    z-index: 1;
+    width: 100%;
+    top: 100px;
+    left: 0;
+    height: 150px;  
+}
+.closeMenu{
+    display: none;  
+}
+.showMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navHamburger ul li a{
+    color: black;
+    margin-top: 10px;
+}
+main{
+    margin-top: 150px;
+}
+/* Region 1 */
+.startTodayWhite{
+    background-color: white;   
+    margin-left: 15px;
+}
+.startTodayWhite:hover{
+    background-color: var(--purple);
+    color: white;
+}
+.startTodayWhite, .readMore, .readLess, #signUpOrange{
+    box-shadow: 1px 1px 10px grey;
+}
+.readMore, #signUpOrange{
+    background-color: var(--orange);
+    color: white;
+}
+#hiddenMainP, #hiddenP, #hiddenP2{
+    display: none;
+}
+.wordLanguage{
+    border: 3px dashed var(--purple);
+    padding: 3px;
+    background-color: rgba(80, 78, 211, 0.2);
+}
+#circle{
+    background-color: var(--pink);
+    width: 100%;
+    min-width: 200px;
+    height: 100%;
+}
+#teacher{
+    width: 100%;
+    min-width: 200px;
+}
+#teacher, #likeBox img{
+    border-radius: 20%;
+}
+#sliderLangugages{
+    width: 13rem;
+    background-color: rgba(245,245,245,0.7);
+    top: 75%;
+    left: -15%;
+    padding: 0.2rem 0; 
+}
+
+#flag-container{
+    width: 40%;
+}
+#flag-container img{
+    width: 80%;
+}
+/* Services */
+.servicesBlocks{
+    text-align: center;
+    transition: 0.6s ease-in-out;
+    box-shadow: 2px 2px 15px #fefe;
+    border-radius: 10px;
+}
+.servicesBlocks p:first-child{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--purple);
+}
+.servicesBlocksHover{
+    cursor: pointer;
+    transform: scale(1.2);
+    background-color: white;   
+}
+.servicesBlocksHover p:first-child{
+    color: black;
+}
+.servicesBlocksHover h3{
+    color: var(--purple);
+    transition: 0.6s;
+}
+/* About */
+.unordered-l{
+    color: var(--orange);
+    font-weight: bold;
+}
+#choose li::marker {
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' width='15' viewBox='0 0 50 50'%3E%3Cpath d='M46.4 16.2c-2.3-2.3-5.4-3.5-8.4-4.5-.5-.2-1.1-.3-1.6-.5-1.6-1.6-3.7-2.8-6.2-3.2-1-.2-1.9.1-2.5.6-.9-.3-1.8-.6-2.7-.8-3.2-1-6.4-1.8-9.5-.1-1 .5-1.9 1.2-2.7 2-6.4 1.4-11.7 5-12.4 12.7C0 27 1.9 31.5 4.9 34.9c.1.6.2 1.1.4 1.7 1 3.2 3.3 5.7 6.7 6.5 2.7.6 5.4-.2 7.9-1.2 3.3.4 6.7.3 9.9 0 6.5-.7 13.3-2.8 17.1-8.5 3.6-5.2 4-12.6-.5-17.2zm-17.3.9c2.1.4 4 1.7 4.7 3.8 0 .5-.1 1.1-.2 1.6-.3 1.4-.8 2.6-1.6 3.7-.7.2-1.5.1-2.3-.4-.8-.4-1.6-1-2.2-1.6-.4-.4-1.2-1.7-1.6-1.9 3.4 1.3 5.1-3 3.2-5.2zm-11.6 9.7c.2-1.9 1.1-3.9 2.3-5.5-.4 2.1.3 4.2 1.7 6 1.3 1.7 3.1 3.2 5 4.2-.2.1-.4.2-.6.4-.1 0-.1.1-.2.1-3.9.2-8.7-.8-8.2-5.2zm-6.4 3.1c.1.3.1.7.2 1 .2.6.4 1.2.7 1.8-.4-.2-.7-.5-1-.7.1-.8.1-1.4.1-2.1zm31.2-1.3c-.9 1.7-2.1 3.1-3.7 4.1 2-2.1 3.4-4.7 4-7.6.2-.7.3-1.4.3-2.1.6 1.5.5 3.3-.6 5.6z'/%3E%3C/svg%3E") ' ';
+}
+#likeBox img{
+    width: 100%;
+}
+#like{
+    padding: 1rem 6rem;
+    top: 73%;
+    left: -23%;
+    transform: rotate(20deg);
+    background-color: rgba(245,245,245,0.9);
+}
+
+#circleLike{
+   background-color: var(--pink);
+   border-radius: 50%;
+   font-size: 2rem;
+   margin: 0 auto;
+   padding: 1rem;
+   border: none;
+}
+
+/* People think */
+.wrapper {
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+  }
+  .wrapper i {
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px grey;
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+  }
+  .wrapper i:active{
+    transform: translateY(-50%) scale(0.85);
+  }
+  .wrapper i:first-child{
+    left: -32px;
+    z-index: 100;
+  }
+  .wrapper i:last-child{
+    right: -22px;
+  }
+  .wrapper .carousel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3));
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel.no-transition {
+    scroll-behavior: auto;
+  }
+  .carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+  .carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+  }
+  .carousel :where(.card, .img) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .carousel .card {
+    scroll-snap-align: start;
+    height: 342px;
+    background: #fff;
+    cursor: pointer;
+    flex-direction: column;
+    border-radius: 10px;
+  }
+  .carousel .card .img {
+    border-radius: 50%;
+  }
+  .card .img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--orange);
+  }
+  /* Latest Posts */
+  #newsSlider{
+    padding: 8rem 0.5rem 0.5rem;
+    transition: background-image 1s ease-in-out;
+    background-size: cover;
+  }
+  #purpleGgradient{
+    background: rgb(80,78,211);
+    background: linear-gradient(90deg, rgba(80,78,211,1) 42%, rgba(204,179,241,1) 100%);
+    padding: 3.5rem 0;
+  }
+  #purpleGgradient, #signUpOrange:hover{
+    box-shadow: 2px 2px 15px var(--orange);
+  }
+  #footerNav ul li{
+    margin-left: 2.5rem;
+}
+#socialMedia a:hover{
+    color: var(--orange);
+}
+#socialMedia a{
+    margin-left:0.5rem;
+}
+/* Animation */
+.fadeInLeft{
+     animation: fadeInLeft 2s; 
+}
+@keyframes fadeInLeft {
+    0% {
+       opacity: 0;
+       transform: translateX(-20px);
+    }
+    100% {
+       opacity: 1;
+       transform: translateX(0);
+    }
+ }
+ /* Author */
+ .blackBg{
+    background-image: url("../img/books.jpg");
+    position: relative;
+    height: 100vh;
+    backdrop-filter: blur(10px); 
+ }
+ .frame{
+    background-color: white;
+    padding: 3rem 6rem;
+ }
+ #imageAuthor img{
+    width: 100%;
+}
+#imageAuthor{
+    top: 1rem;
+}
+.arrowHome{
+    top: 1.5rem;
+    left: 1rem;
+    font-size: 1.2rem;
+}
+.arrowHome a{
+    color: white;
+}
+#circleAuthor{
+    background-color: var(--pink);
+    width: 60%;
+    height: 60%;
+}
+/* Forma */
+.form-group input:focus {
+    box-shadow: none;
+    outline: 0;
+    
+  } 
+.form-group.success input{
+    border-width: 2px;
+    border-color: rgb(100, 155, 80);
+}
+.successSubmit{
+    color: rgb(100, 155, 80);;
+}
+.form-group.error input{
+    outline: 2px solid var(--pink); 
+   
+}
+.form-group .error{
+    color: var(--pink);
+}
+  
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+

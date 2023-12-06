@@ -1,0 +1,76 @@
+@media screen and (max-width: 1203px) {
+        
+    .AIVEN-scrollSlider, .AIVEN-scrollSlider .inner A{
+        width: 360px;
+     }
+     #like{
+        padding: 0.5rem 3rem;
+     }
+   
+}
+@media screen and (max-width: 992px) {
+    #navbar{
+        display: none;
+    }
+    #hamburger.d-none{
+        display: flex !important;
+    }
+    .AIVEN-scrollSlider, .AIVEN-scrollSlider .inner A{
+        width: 300px;
+     }
+     .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2) + 3px);
+      }
+  }
+
+  @media screen and (max-width: 768px) {
+    .modal-content{
+        width: 60%;
+    }
+    .smallCenter{
+        justify-content: center !important;    
+    }
+    #sliderLangugages{
+        width: 12rem;  
+    }
+    .grey-background{
+        background-color: #faf7fa;
+    }
+    .AIVEN-scrollSlider, .AIVEN-scrollSlider .inner A{
+        display: none;
+     }
+     .mediumCenter{
+        text-align: center;
+     }  
+     #likeBox, .autoCenter{
+        margin: 0 auto;
+     }
+     #likeBox img{
+        width: 100%;
+    }
+    .autoCenter{
+        margin-top: 2rem;
+    }
+    #newsSlider {
+        margin: 0 auto; 
+        
+    }
+   
+  }
+  @media screen and (max-width: 576px) {  
+        .servicesBlocks{
+            margin: 0 auto;
+        }
+        .wrapper .carousel {
+            grid-auto-columns: 100%
+          }
+          .wrapper{
+            width: 70%;
+          }
+
+       
+  }
+
+
+
+  
