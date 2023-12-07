@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
-    
-    let url = window.location.pathname;
-    
+        let url = window.location.pathname;
+
+        if(url =='/' || url == '/index.html'){
+
         //Nav
         var navItems = [
             { text: 'Home', url: 'index.html' },
@@ -397,7 +398,7 @@ $(document).ready(function () {
         let year = currentDate.getFullYear();
         dateCopyRight.innerHTML = year;
     
-
+        }
     // Form validation
     if (url == "/" || url.includes("/sign-up.html")) {
 
