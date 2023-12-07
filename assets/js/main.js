@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    
     let url = window.location.pathname;
     if (url == "/" || url.includes("/index.html")) {
         //Nav
