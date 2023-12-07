@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
-        let url = window.location.pathname;
-
-        if(url =='/' || url == '/index.html'){
-
+    
+    let url = window.location.pathname;
+    if (url == "/worldspeak/" || url.includes("/worldspeak/index.html")) {
+    
         //Nav
         var navItems = [
             { text: 'Home', url: 'index.html' },
@@ -398,9 +398,12 @@ $(document).ready(function () {
         let year = currentDate.getFullYear();
         dateCopyRight.innerHTML = year;
     
-        }
+    }
+
+
+
     // Form validation
-    if (url == "/" || url.includes("/sign-up.html")) {
+    if (url.includes("/sign-up.html")) {
 
         let form = document.querySelector('#form');
         let firstName = document.querySelector('#firstName');
