@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     
     let url = window.location.pathname;
-    if (url == "/" || url.includes("/index.html")) {
+    
         //Nav
         var navItems = [
             { text: 'Home', url: 'index.html' },
@@ -396,7 +396,7 @@ $(document).ready(function () {
         let dateCopyRight = document.querySelector('#date');
         let year = currentDate.getFullYear();
         dateCopyRight.innerHTML = year;
-    }
+    
 
     // Form validation
     if (url == "/" || url.includes("/sign-up.html")) {
