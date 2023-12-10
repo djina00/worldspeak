@@ -2,8 +2,8 @@ $(document).ready(function () {
 
 
     let url = window.location.pathname;
-    if (url == "/worldspeak/" || url.includes("/worldspeak/index.html")) {
-
+    if (url == "/worldspeak/" || url.includes("/worldspeak/index.html")) { 
+        
 
         //Nav
         var navItems = [

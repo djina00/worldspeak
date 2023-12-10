@@ -392,6 +392,7 @@ main{
 .form-group input:focus {
     box-shadow: none;
     outline: 0;
+    border-color: black;
     
   } 
 .successSubmit{
