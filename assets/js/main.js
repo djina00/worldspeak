@@ -1,9 +1,10 @@
 $(document).ready(function () {
 
-    
+
     let url = window.location.pathname;
     if (url == "/worldspeak/" || url.includes("/worldspeak/index.html")) {
-    
+
+
         //Nav
         var navItems = [
             { text: 'Home', url: 'index.html' },
@@ -194,9 +195,9 @@ $(document).ready(function () {
 
         let ulCarousel = document.querySelector(".carousel");
 
-        let srcCarousel = [`${prefiksImg}aisha.jpg`, `${prefiksImg}ajrun.jpg`, `${prefiksImg}freja.jpg`, `${prefiksImg}dimitri.jpg`, 
+        let srcCarousel = [`${prefiksImg}aisha.jpg`, `${prefiksImg}ajrun.jpg`, `${prefiksImg}freja.jpg`, `${prefiksImg}dimitri.jpg`,
         `${prefiksImg}alliyah.jpg`, `${prefiksImg}rafael.jpg`];
-        
+
         let h3Carousel = ['Aisha Khan', 'Arjun Patel', 'Freja Larsen', 'Dimitri Ivanov', 'Aaliyah Malik', 'Rafael Gonzalez'];
         let spanCarousel = ['"Learning languages with this company has been an enlightening experience."',
             '"I am grateful for the engaging language courses provided here."',
@@ -397,152 +398,96 @@ $(document).ready(function () {
         let dateCopyRight = document.querySelector('#date');
         let year = currentDate.getFullYear();
         dateCopyRight.innerHTML = year;
-    
+
     }
 
-
-
-    // Form validation
+    // // Form validation
     if (url.includes("/sign-up.html")) {
 
-        let form = document.querySelector('#form');
-        let firstName = document.querySelector('#firstName');
-        let lastName = document.querySelector('#lastName');
-        let email = document.querySelector('#email');
-        let password = document.querySelector('#password');
-        let passwordRepeat = document.querySelector('#passwordRepeat');
-        let submit = document.querySelector('#submit');
+        let reName = /^[A-ZĐŽŠČĆ][a-zđžščć]{2,}$/;
+        let reEmail = /^[a-z0-9]{3,}([\.][a-z0-9\-\$\*\_]+)*[\@](gmail.com|yahoo.com|edu.rs)$/;
+        let rePassword = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-        form.addEventListener('submit', button => {
-            button.preventDefault();
-            validateForm();
-            if (error == 0) {
-                submit.nextElementSibling.classList.remove('d-none');
+        $('#firstName').blur(function () {
+            validateRegEx(reName, '#firstName', 'First name', 'Peter');
+        })
+
+        $('#lastName').blur(function () {
+            validateRegEx(reName, '#lastName', 'Last name', 'Peterson');
+        })
+
+        $('#email').blur(function () {
+            validateRegEx(reEmail, '#email', 'Email', 'peter123@gmail.com');
+        })
+
+        $('#password').blur(function () {
+            validateRegEx(rePassword, '#password', 'Password', 'at least 8 charactres <br /> at least 1 uppercase letter <br /> at least 1 special character <br />at least 1 digit');
+        })
+
+
+        $('#passwordRepeat').blur(function () {
+            if ($('#passwordRepeat').val() == 0) {
+                $('#passwordRepeat').addClass('error');
+                $('#passwordRepeat').next().text('Please confirm password.');
+                error++;
+            }
+            else if ($('#passwordRepeat').val() != $('#password').val()) {
+                $('#passwordRepeat').addClass('error');
+                $('#passwordRepeat').next().text('Password doesn`t match.');
+                error++;
+            }
+            else {
+                $('#passwordRepeat').removeClass('error');
+                $('#passwordRepeat').addClass('success');
+                $('#passwordRepeat').next().text('');
             }
 
         });
 
-        let setError = (element, message) => {
-            let inputControl = element.parentElement;
-            let errorDisplay = inputControl.querySelector('.error');
+        function validateRegEx(regEx, element, requiredText, exampleText) {
+            if ($(element).val() == 0) {
+                $(element).addClass('error');
+                $(element).next().text(requiredText + ' is required.');
+                error++;
+                return;
+            }
+            if (!$(element).val().match(regEx)) {
+                $(element).addClass('error');
+                $(element).next().html('Format is not valid.Example: ' + exampleText);
+                error++;
+            }
 
-            errorDisplay.innerHTML = message;
-            inputControl.classList.add('error');
-            inputControl.classList.remove('success');
-
-        };
-        let setSuccess = element => {
-            let inputControl = element.parentElement;
-            let errorDisplay = inputControl.querySelector('.error');
-
-            errorDisplay.textContent = '';
-            inputControl.classList.add('success');
-            inputControl.classList.remove('error');
-
-        };
-
-        let isValidEmail = email => {
-            let regExpEmail = /^[a-z0-9]{3,}([\.][a-z0-9\-\$\*\_]+)*[\@](gmail.com|yahoo.com|edu.rs)$/;
-            return regExpEmail.test(email);
-        };
-        let isValidFirstLastName = firstLastName => {
-            let regExpFirstLastName = /^[A-ZĐŽŠČĆ][a-zđžščć]{2,}$/;
-            return regExpFirstLastName.test(firstLastName);
+            else {
+                $(element).removeClass('error');
+                $(element).addClass('success');
+                $(element).next().text('');
+            }
         }
 
-        let validateForm = () => {
+        var error = 0;
+
+        $('#submit').click(validateOnSubmit);
+
+        function validateOnSubmit(e) {
+            e.preventDefault();
 
             error = 0;
-            let firstNameValue = firstName.value;
-            let lastNameValue = lastName.value;
-            let emailValue = email.value;
-            let passwordValue = password.value;
-            let passwordRepeatValue = passwordRepeat.value;
+            validateRegEx(reName, '#firstName', 'First name', 'Peter');
+            validateRegEx(reName, '#lastName', 'Last name', 'Peterson');
+            validateRegEx(reEmail, '#email', 'Email', 'peter123@gmail.com');
+            validateRegEx(rePassword, '#password', 'Password', 'at least 8 charactres <br /> at least 1 uppercase letter <br /> at least 1 special character <br />at least 1 digit');
 
-            if (firstNameValue == '') {
-                setError(firstName, 'First name is required');
-                error++;
-            }
-            else if (!isValidFirstLastName(firstNameValue)) {
-                setError(firstName, 'Format is not valid.Example: Peter');
-                error++;
+            $('#passwordRepeat').blur();
+
+            if (!error) {
+                $('#submit').next().removeClass('d-none');
             }
             else {
-                setSuccess(firstName);
+                $('#submit').next().addClass('d-none');
             }
-
-            if (lastNameValue == '') {
-                setError(lastName, 'Last name is required');
-                error++;
-            }
-            else if (!isValidFirstLastName(lastNameValue)) {
-                setError(lastName, 'Format is not valid.Example: Peterson');
-                error++;
-            }
-            else {
-                setSuccess(lastName);
-            }
-
-            if (emailValue == '') {
-                setError(email, 'Email is required');
-                error++;
-            }
-            else if (!isValidEmail(emailValue)) {
-                setError(email, 'Format is not valid.Example: peter123@gmail.com');
-                error++;
-            }
-            else {
-                setSuccess(email);
-            }
-
-            if (passwordValue == '') {
-                setError(password, 'Password is required');
-                error++;
-            }
-            else if (passwordValue.length < 8) {
-                setError(password, 'Password must be at least 8 character');
-                error++;
-            }
-            else {
-                setSuccess(password);
-            }
-
-            if (passwordRepeatValue == '') {
-                setError(passwordRepeat, 'Please confirm your password');
-                error++;
-            }
-            else if (passwordRepeatValue != passwordValue) {
-                setError(passwordRepeat, 'Password doesn`t match');
-                error++;
-            }
-            else {
-                setSuccess(passwordRepeat);
-            }
-
-        };
-
+        }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
 
